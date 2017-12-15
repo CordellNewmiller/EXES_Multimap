@@ -1,9 +1,48 @@
+;
+; EXES MultiMap
+; 
+; This program bins one or more EXES slit maps into a single spacially rectified data cube. 
+;
+;
+; Optional Keywords
+;
+; DIRECTORY = directory
+;   Default: present working directory
+;   Type: string, e.g. '/home/joe/data/andromeda/' or './andromeda/'
+;   Input data directory containing UND map files to be coadded, as well as a corresponding WVM flat file, as processed from the EXES pipeline.
+;
+; OUTDIR = outdir
+;   Default: "Multimap_Output" directory inside DIRECTORY
+;   Type: string
+;   Location to save the coadded results as FITS files. Outdir is created if it doesn't already exist.
+;
+; FILENAME = filename
+;   Default: Object name + '_Coadded_Cube'
+;   Type: String
+;
+; WAVEBOUND = wavebound
+;   Default: [0,-1] (the full input range)
+;   Type: vector of form [min,max]
+;
+;   
+; SKYOPTION = skyoption
+;   Default = 0
+;   Type = integer 0, 1, or 2
+;     0: no subtraction
+;     1: subtraction using the three sky frames
+;     2: subtraction using a proportional average of the first and last data frames
+;   
+; UPANGLE
+;   Default: North 
+;   Type: Angle in degrees East from North
+;   Desired orientation of data cube
+;
+;
 ; wishlist
 ; 
-; sky subtraction with options
+; medium mode
 ; prebinning along slit
 ; hypersampling
-; medium mode
 ; 
 ; 
 
@@ -879,30 +918,6 @@ end
 
 pro multimap,_EXTRA=ex
 
-  ;
-  ; Optional Keywords
-  ; 
-  ; DIRECTORY = directory
-  ;   Default: present working directory
-  ;   Type: string, e.g. '/home/joe/data/andromeda/' or './andromeda/'
-  ;   Input data directory containing UND map files to be coadded, as well as a corresponding WVM flat file, as processed from the EXES pipeline.
-  ; 
-  ; OUTDIR = outdir
-  ;   Default: "Multimap_Output" directory inside DIRECTORY
-  ;   Type: string
-  ;   Location to save the coadded results as FITS files. Outdir is created if it doesn't already exist.
-  ;   
-  ; FILENAME = filename
-  ;   Default: Object name + '_Coadded_Cube'  
-  ;   Type: String
-  ;   
-  ; WAVEBOUND = wavebound
-  ;   Default: full input range
-  ;   
-  ;   
-  ; 
-  ; 
-  ;
   
   
   
